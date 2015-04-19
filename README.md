@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Hodor
 
 Hodor is a chat bot built on the [Hubot][hubot] framework. It was
@@ -220,3 +221,7 @@ you're having issues.
 where HUBOT_SLACK_TOKEN is the slack token
 ```HUBOT_SLACK_TOKEN=x ./bin/hubot --adapter slack```
 
+=======
+# HodorBot
+Slack bot based on hubot-slack
+>>>>>>> 4884b57cd8831fca4516f679574bbae57187c4ec
