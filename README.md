@@ -212,3 +212,11 @@ Add the subdomain hubot should connect to. If you web URL looks like
 
 You may want to get comfortable with `heroku logs` and `heroku restart` if
 you're having issues.
+
+## Custom documentation
+
+### running locally for slack
+
+where HUBOT_SLACK_TOKEN is the slack token
+```HUBOT_SLACK_TOKEN=x ./bin/hubot --adapter slack```
+
