@@ -10,19 +10,28 @@
 
 module.exports = (robot) ->
 
-    # the prefix is always "hodor " because hubot prefixes the hubot name.
-    # hear: said in a room, respond: addressed directly
-    # Hodor (case insensitive, anywhere in a sentence) will return Hodor, hodor.
-    robot.hear /(^hodor\shodor$)|(hodor\s.*hodor[^\?].*)/i, (res) ->
+    ## Easy
+    robot.hear /hodor/i, (res) ->
         res.send "Hodor, hodor."
 
-    # Hodor? (case insensitive, exact match) -> Hodor!
-    robot.hear /^hodor\shodor\?$/i, (res) ->
+    robot.hear /winter\sis\scoming/i, (res) ->
         res.send "Hodor!"
+    
+    ## Advanced
+
+    # the prefix is always "hodor " because hubot prefixes the hubot name (but not in channel?).
+    # hear: said in a room, respond: addressed directly
+    # Hodor (case insensitive, anywhere in a sentence) will return Hodor, hodor.
+    #robot.hear /(^hodor\shodor$)|(hodor\s.*hodor[^\?].*)/i, (res) ->
+    #    res.send "Hodor, hodor."
+
+    # Hodor? (case insensitive, exact match) -> Hodor!
+    #robot.hear /^hodor\shodor\?$/i, (res) ->
+    #    res.send "Hodor!"
 
     # Winter is coming (case insensitive, anywhere in a sentence) -> Hodor!
-    robot.hear /hodor\s.*winter\sis\scoming/i, (res) ->
-        res.send "Hodor!"
+    #robot.hear /hodor\s.*winter\sis\scoming/i, (res) ->
+    #    res.send "Hodor!"
 
 
   # robot.respond /open the (.*) doors/i, (res) ->
