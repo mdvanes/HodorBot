@@ -218,8 +218,41 @@ you're having issues.
 
 ## Custom documentation
 
+### running localle for shell
+
+./bin/hubot
+
 ### running locally for slack
 
-where HUBOT_SLACK_TOKEN is the slack token
 ```HUBOT_SLACK_TOKEN=x ./bin/hubot --adapter slack```
+where HUBOT_SLACK_TOKEN is the slack token
+
+```git status```
+
+```git commit -m "message"```
+
+push git:
+```git push origin master```
+
+
+### setting up heroku:
+```heroku create mdworld-slackbot```
+```heroku addons:add redistogo:nano``` <- this step requires creditcard.
+
+### configuring hubot-scripts
+
+* ```npm install hubot-dogeme --save``` and add "hubot-dogeme" to external-scripts.json
+* ```npm install hubot-9gag --save``` and add "hubot-9gag" to external-scripts.json
+
+
+### running on ubuntu server:
+
+* ssh to ubuntu server
+* connect to screen ```screen -dRR``
+* create a new screen ```screen ctrl+a ctrl+c```
+* git checkout of project ```git clone https://github.com/mdvanes/HodorBot.git``` or pull ```git pull origin master```
+* from the dir that contains Procfile, run ```HUBOT_SLACK_TOKEN=x ./bin/hubot --adapter slack```
+where HUBOT_SLACK_TOKEN is the slack token
+* disconnect from screen ```screen ctrl+d```
+
 
