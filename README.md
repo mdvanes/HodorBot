@@ -229,7 +229,7 @@ where HUBOT_SLACK_TOKEN is the slack token
 
 ```git status```
 
-```git commit -m "message"```
+```git commit -am "message"```
 
 push git:
 ```git push origin master```
