@@ -265,6 +265,7 @@ env HUBOT='bin/hubot'
 env ADAPTER='slack'
 # Name (and local user) to run Hubot as
 env HUBOT_USER='USER'
+env PORT=5000
 
 # Slack-specific environment variables
 env HUBOT_SLACK_TOKEN=''
