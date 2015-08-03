@@ -218,7 +218,7 @@ you're having issues.
 
 ## Custom documentation
 
-### running localle for shell
+### running locally for shell
 
 ./bin/hubot
 
@@ -244,8 +244,45 @@ push git:
 * ```npm install hubot-dogeme --save``` and add "hubot-dogeme" to external-scripts.json
 * ```npm install hubot-9gag --save``` and add "hubot-9gag" to external-scripts.json
 
+### running on ubuntu server (upstart):
 
-### running on ubuntu server:
+* check out to ~/hubot, such that ~/hubot/HodorBot/bin exists, e.g. 
+	* ```cd ~/hubot``` and ```git clone https://github.com/mdvanes/HodorBot.git```
+	* or update: ```cd ~/hubot``` and ```git pull origin master``
+* setup Upstart script (so screen is not needed and it will start up automatically on boot and on fail), create hubot.conf:
+
+```
+# hubot
+
+description "Hubot Slack bot"
+
+start on filesystem or runlevel [2345]
+stop on runlevel [!2345]
+
+# Path to Hubot installation
+env HUBOT_DIR='/home/USER/hubot/HodorBot/'
+env HUBOT='bin/hubot'
+env ADAPTER='slack'
+# Name (and local user) to run Hubot as
+env HUBOT_USER='USER'
+
+# Slack-specific environment variables
+env HUBOT_SLACK_TOKEN=''
+
+# Keep the process alive, limit to 5 restarts in 60s
+respawn
+respawn limit 5 60
+
+exec start-stop-daemon --start --chuid ${HUBOT_USER} --chdir ${HUBOT_DIR} \
+  --exec ${HUBOT_DIR}${HUBOT} -- --name ${HUBOT_USER} --adapter ${ADAPTER} --verbose >> ${HUBOT_DIR}hodorbot.log
+```
+
+* edit HUBOT_SLACK_TOKEN in hubot.conf
+* edit USER (HUBOT_DIR and HUBOT_USER) in hubot.conf
+* place in /etc/init/hubot.conf
+* run ```sudo service hubot start```
+
+### running on ubuntu server (manual):
 
 * ssh to ubuntu server
 * connect to screen ```screen -dRR``
